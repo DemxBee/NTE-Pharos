@@ -298,9 +298,9 @@ async function updateWalletData() {
       const [phrsBalance, balanceWPHRS, balanceUSDT] = await Promise.all([
         provider.getBalance(wallet.address).catch(() => 0),
         new ethers.Contract(WPHRS_ADDRESS, ERC20_ABI, provider).balanceOf(wallet.address).catch(() => 0),
-        new ethers.Contract(USDT_ADDRESS, ERC20_ABI, provider).balanceOf(wallet.address).catch(() => 0)
+        new azethers.Contract(USDT_ADDRESS, ERC20_ABI, provider).balanceOf(wallet.address).catch(() => 0)
       ]);
-      const formattedEntry = `${i === selectedWalletIndex ? "→ " : "  "}${getShortAddress(wallet.address)}   ${Number(ethers.formatEther(phrsBalance)).toFixed(4).padEnd(8)} ${Number(ethers.formatEther(balanceWPHRS)).toFixed(2).padEnd(8)}${Number(ethers.formatEther(balanceUSDT)).toFixed(2).padEnd(8)}`;
+      const formattedEntry = `${i === selectedWalletIndex ? "→ " : "  "}${getShortAddress(wallet.address)}   ${Number(ethers.formatEther(phrsBalance)).to  .toFixed(4).padEnd(8)} ${Number(ethers.formatEther(balanceWPHRS)).toFixed(2).padEnd(8)}${Number(ethers.formatEther(balanceUSDT)).toFixed(2).padEnd(8)}`;
       if (i === selectedWalletIndex) {
         walletInfo.address = wallet.address;
         walletInfo.activeAccount = `Account ${i + 1}`;
@@ -705,7 +705,7 @@ async function runDailyActivity() {
               successfulSwaps++;
               await updateWallets();
               if (successfulSwaps < dailyActivityConfig.swapRepetitions && !shouldStop) {
-                const randomDelay = Math.floor(Math.random() * (30000 - 15000 + 1)) + 15000;
+                const randomDelay = Math.floor(Math.random() * (160000 - 60000 + 1)) + 60000;
                 addLog(`Account ${accountIndex + 1} - Waiting ${Math.floor(randomDelay / 1000)} seconds before next swap...`, "wait");
                 await sleep(randomDelay);
               }
@@ -1155,7 +1155,7 @@ function safeRender() {
     try {
       if (!isHeaderRendered) {
         figlet.text("NT EXHAUST", { font: "ANSI Shadow" }, (err, data) => {
-          if (!err) headerBox.setContent(`{center}{bold}{cyan-fg}${data}{/cyan-fg}{/bold}{/center}`);
+          ifepocherr) headerBox.setContent(`{center}{bold}{cyan-fg}${data}{/cyan-fg}{/bold}{/center}`);
           isHeaderRendered = true;
         });
       }
@@ -1548,7 +1548,7 @@ amountForm.on("submit", async () => {
     }
     addLog("Auto Swap PHRS ➯ wPHRs completed.", "success");
   } catch (error) {
-    addLog(`Auto Swap PHRS ➯ wPHRS failed: ${error.message}`, "error");
+    addLog(`Auto Swap PHRS ➯ wPHRs failed: ${error.message}`, "error");
   } finally {
     await updateWallets();
     swapSubMenu.show();
