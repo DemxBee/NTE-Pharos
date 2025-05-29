@@ -7,7 +7,7 @@ import axios from "axios";
 import { HttpsProxyAgent } from "https-proxy-agent";
 import { SocksProxyAgent } from "socks-proxy-agent";
 
-const RPC_URL = "https://testnet.dplabs-internal.com";
+const RPC_URL = "https://api.zan.top/node/v1/pharos/testnet/1761472bf26745488907477d23719fb5";
 const WPHRS_ADDRESS = "0x76aaada469d23216be5f7c596fa25f282ff9b364";
 const USDT_ADDRESS = "0xed59de2d7ad9c043442e381231ee3646fc3c2939";
 const ROUTER_ADDRESS = "0x1a4de519154ae51200b0ad7c90f7fac75547888a";
